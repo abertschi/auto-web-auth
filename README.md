@@ -2,7 +2,7 @@ WIFI auto web-authenticator
 ===========================
 
 This piece of software autoconnects a web authentification based wireless-network.  
-The project was launched tue to a request by ourselves to autologin into the web authentificated network of our school.
+The project was launched due to a request by ourselves to autologin into the web authentificated network of our school.
 
 
 ## Basic ideas 
