@@ -1,0 +1,14 @@
+# folders
+**/target/**
+**/.settings/**
+
+
+# files
+*.class
+.project
+.classpath
+
+# Package Files #
+*.jar
+*.war
+*.ear
