@@ -10,11 +10,12 @@
 	<modules>
 		<module>auto-webauth-wifi</module>
 		<module>auto-webauth-client</module>
+		<module>auto-webauth-common</module>
 	</modules>
 	<build>
 		<pluginManagement>
 			<plugins>
-				
+
 				<!-- Compiler Plugin -->
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
@@ -42,14 +43,57 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		
-		<!-- Generate source artifact for all modules -->
-		<plugins>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<groupId>org.apache.maven.plugins</groupId>
-			</plugin>
-		</plugins>
-		
 	</build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>eclipselink</artifactId>
+				<version>2.5.1</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.eclipse.persistence</groupId>
+						<artifactId>commonj.sdo</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.annotation</groupId>
+				<artifactId>jsr250-api</artifactId>
+				<version>1.0</version>
+			</dependency>
+
+			<!-- JSR (303/) 349 Beanvalidation 1.1 -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>5.0.1.Final</version>
+			</dependency>
+
+			<!-- JSR (303/) 349 Beanvalidation 1.1 API-->
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>1.1.0.Final</version>
+			</dependency>
+
+
+
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>oss.sonatype.org</id>
+			<name>OSS Sonatype Staging</name>
+			<url>https://oss.sonatype.org/content/groups/staging</url>
+		</repository>
+	</repositories>
 </project>
