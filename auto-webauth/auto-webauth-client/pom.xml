@@ -24,6 +24,15 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.auth.autowifi</groupId>
+			<artifactId>auto-webauth-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.auth.autowifi</groupId>
+			<artifactId>auto-webauth-common</artifactId>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
 		</dependency>
@@ -44,9 +53,7 @@
 		</dependency>
 
 		<!-- JSR (303/) 349 Beanvalidation 1.1 API -->
-		<!-- <dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-		</dependency> -->
+		<!-- <dependency> <groupId>javax.validation</groupId> <artifactId>validation-api</artifactId> 
+			</dependency> -->
 	</dependencies>
 </project>

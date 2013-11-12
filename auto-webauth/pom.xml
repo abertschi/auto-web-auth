@@ -11,6 +11,7 @@
 		<module>auto-webauth-wifi</module>
 		<module>auto-webauth-client</module>
 		<module>auto-webauth-common</module>
+		<module>auto-webauth-api</module>
 	</modules>
 	<build>
 		<pluginManagement>
@@ -46,6 +47,28 @@
 	</build>
 	<dependencyManagement>
 		<dependencies>
+
+			<dependency>
+				<groupId>org.auth.autowifi</groupId>
+				<artifactId>auto-webauth-wifi</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>org.auth.autowifi</groupId>
+				<artifactId>auto-webauth-api</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>org.auth.autowifi</groupId>
+				<artifactId>auto-webauth-common</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>org.auth.autowifi</groupId>
+				<artifactId>auto-webauth-client</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.eclipse.persistence</groupId>
 				<artifactId>eclipselink</artifactId>
@@ -77,7 +100,7 @@
 				<version>5.0.1.Final</version>
 			</dependency>
 
-			<!-- JSR (303/) 349 Beanvalidation 1.1 API-->
+			<!-- JSR (303/) 349 Beanvalidation 1.1 API -->
 			<dependency>
 				<groupId>javax.validation</groupId>
 				<artifactId>validation-api</artifactId>

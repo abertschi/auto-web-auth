@@ -8,4 +8,15 @@
 	</parent>
 	<artifactId>auto-webauth-wifi</artifactId>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.auth.autowifi</groupId>
+			<artifactId>auto-webauth-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.auth.autowifi</groupId>
+			<artifactId>auto-webauth-common</artifactId>
+		</dependency>
+	</dependencies>
+
 </project>
