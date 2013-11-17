@@ -8,5 +8,5 @@ package org.auth.autowifi.api.network;
  */
 public interface NetworkListener {
 
-	void onEstablished(Connection event);
+	void onConnectionActivity(ConnectionEvent event);
 }

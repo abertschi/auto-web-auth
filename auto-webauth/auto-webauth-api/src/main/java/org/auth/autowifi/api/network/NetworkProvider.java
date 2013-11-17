@@ -1,5 +1,6 @@
 package org.auth.autowifi.api.network;
 
+import java.net.ConnectException;
 import java.util.List;
 
 /**
@@ -33,4 +34,6 @@ public interface NetworkProvider {
 	 * @return see description.
 	 */
 	List<Connection> getConnections();
+	
+	void connect(Connection c) throws ConnectException;
 }
