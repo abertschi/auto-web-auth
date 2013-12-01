@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.autowebauth</groupId>
+	<artifactId>auto-web-auth</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Automatic web based authentication mechanism</name>
+	<description>This piece of software autoconnects a web authentication based wireless-network with predefined login credentials.</description>
+	<inceptionYear>2013</inceptionYear>
+	<developers>
+		<developer>
+			<name>abertschi(Andrin Bertschi)</name>
+		</developer>
+		<developer>
+			<name></name>
+		</developer>
+	</developers>
+	<modules>
+		<module>auto-web-auth-core-api</module>
+		<module>auto-web-auth-core-impl-base</module>
+		<module>auto-web-auth-client-fx</module>
+		<module>auto-web-auth-commons</module>
+		<module>auto-web-auth-bom</module>
+	</modules>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Compiler Plugin -->
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
+
+				<!-- maven-source-plugin -->
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<groupId>org.apache.maven.plugins</groupId>
+					<version>2.2.1</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<dependencyManagement>
+		<dependencies>
+		    <!-- for development (before first release) use this bom -->
+			<dependency>
+				<groupId>org.autowebauth</groupId>
+				<artifactId>auto-web-auth-bom</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>eclipselink</artifactId>
+				<version>2.5.1</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.eclipse.persistence</groupId>
+						<artifactId>commonj.sdo</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.annotation</groupId>
+				<artifactId>jsr250-api</artifactId>
+				<version>1.0</version>
+			</dependency>
+
+			<!-- JSR (303/) 349 Beanvalidation 1.1 -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>5.0.1.Final</version>
+			</dependency>
+
+			<!-- JSR (303/) 349 Beanvalidation 1.1 API -->
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>1.1.0.Final</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>oss.sonatype.org</id>
+			<name>OSS Sonatype Staging</name>
+			<url>https://oss.sonatype.org/content/groups/staging</url>
+		</repository>
+	</repositories>
+</project>

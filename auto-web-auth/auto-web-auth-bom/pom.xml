@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.autowebauth</groupId>
+		<artifactId>auto-web-auth</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>auto-web-auth-bom</artifactId>
+	<packaging>pom</packaging>
+	<name>Bill of materials</name>
+	
+	<properties>
+		<version.auto-web-auth-core-api>0.0.1-SNAPSHOT</version.auto-web-auth-core-api>
+		<version.auto-web-auth-core-impl>0.0.1-SNAPSHOT</version.auto-web-auth-core-impl>
+		<version.auto-web-auth-commons>0.0.1-SNAPSHOT</version.auto-web-auth-commons>
+		<version.auto-web-auth-client-fx>0.0.1-SNAPSHOT</version.auto-web-auth-client-fx>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.autowebauth</groupId>
+				<artifactId>auto-web-auth-core-api</artifactId>
+				<version>${version.auto-web-auth-core-api}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.autowebauth</groupId>
+				<artifactId>auto-web-auth-core-impl-base</artifactId>
+				<version>${version.auto-web-auth-core-impl}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.autowebauth</groupId>
+				<artifactId>auto-web-auth-commons</artifactId>
+				<version>${version.auto-web-auth-commons}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.autowebauth</groupId>
+				<artifactId>auto-web-auth-client-fx</artifactId>
+				<version>${version.auto-web-auth-client-fx}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
