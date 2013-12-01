@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -11,6 +12,7 @@ import javax.persistence.Persistence;
 
 import org.autowebauth.client.fx.business.registration.entity.Registration;
 
+@ApplicationScoped
 public class RegistrationService {
 	
 	private EntityManager em;

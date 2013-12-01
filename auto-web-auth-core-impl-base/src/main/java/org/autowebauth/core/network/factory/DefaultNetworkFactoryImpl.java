@@ -1,6 +1,5 @@
 package org.autowebauth.core.network.factory;
 
-import org.autowebauth.core.api.network.NetworkFactory;
 import org.autowebauth.core.api.network.exept.NetworkProvidementNotSupportedException;
 import org.autowebauth.core.api.network.provider.NetworkProvider;
 import org.autowebauth.core.network.winos.WinOsNetworkProvider;

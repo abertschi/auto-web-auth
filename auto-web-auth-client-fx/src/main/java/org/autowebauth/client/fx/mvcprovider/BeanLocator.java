@@ -1,18 +1,28 @@
 package org.autowebauth.client.fx.mvcprovider;
 
+/**
+ * 
+ * @author abertschi
+ * @since 29.11.2013 
+ * 
+ */
+@Deprecated // dont use anymore. If required, do by your own
 public class BeanLocator {
+	
+	private BeanLocator() {
+		throw new UnsupportedOperationException("No instances permitted");
+	}
 
-	public <TYPE> TYPE lookUp(Class<TYPE> clazz) {
+	public <TYPE> TYPE instanciateByClass(Class<TYPE> clazz) {
+		TYPE object = null;
 		try {
-			return clazz.newInstance();
+			object =  clazz.newInstance();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new IllegalArgumentException("Not able to instanciate class", e);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new IllegalArgumentException("Class not correctly accessable", e);
 		}
-		return null;
+		return object;
 	}
 	
 }

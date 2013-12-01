@@ -23,6 +23,9 @@
 		<module>auto-web-auth-commons</module>
 		<module>auto-web-auth-bom</module>
 	</modules>
+	<properties>
+		<version.deltaspike>0.5</version.deltaspike>
+	</properties>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -56,13 +59,13 @@
 	</build>
 	<dependencyManagement>
 		<dependencies>
-		    <!-- for development (before first release) use this bom -->
+			<!-- for development (before first release) use this bom -->
 			<dependency>
 				<groupId>org.autowebauth</groupId>
 				<artifactId>auto-web-auth-bom</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.eclipse.persistence</groupId>
 				<artifactId>eclipselink</artifactId>
@@ -99,6 +102,36 @@
 				<groupId>javax.validation</groupId>
 				<artifactId>validation-api</artifactId>
 				<version>1.1.0.Final</version>
+			</dependency>
+
+			<!-- vendor independent interfaces for java ee modules: apache deltaspike -->
+			<dependency>
+				<groupId>org.apache.deltaspike.core</groupId>
+				<artifactId>deltaspike-core-api</artifactId>
+				<version>${version.deltaspike}</version>
+				<scope>compile</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.deltaspike.core</groupId>
+				<artifactId>deltaspike-core-impl</artifactId>
+				<version>${version.deltaspike}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<!-- JSR 299: deltaspike -->
+			<dependency>
+				<groupId>org.apache.deltaspike.cdictrl</groupId>
+				<artifactId>deltaspike-cdictrl-weld</artifactId>
+				<version>${version.deltaspike}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<!-- WELD SE (RI) for deltaspike -->
+			<dependency>
+				<groupId>org.jboss.weld.se</groupId>
+				<artifactId>weld-se</artifactId>
+				<version>2.1.0.Final</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

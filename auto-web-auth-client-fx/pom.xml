@@ -33,7 +33,7 @@
 			<artifactId>auto-web-auth-commons</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
@@ -54,8 +54,27 @@
 			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 
-		<!-- JSR (303/) 349 Beanvalidation 1.1 API -->
-		<!-- <dependency> <groupId>javax.validation</groupId> <artifactId>validation-api</artifactId> 
-			</dependency> -->
+		<!-- vendor independent interfaces for modules: apache deltaspike -->
+		<dependency>
+			<groupId>org.apache.deltaspike.core</groupId>
+			<artifactId>deltaspike-core-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.deltaspike.core</groupId>
+			<artifactId>deltaspike-core-impl</artifactId>
+		</dependency>
+
+		<!-- JSR 299: deltaspike -->
+		<dependency>
+			<groupId>org.apache.deltaspike.cdictrl</groupId>
+			<artifactId>deltaspike-cdictrl-weld</artifactId>
+		</dependency>
+
+		<!-- WELD SE (RI) for deltaspike -->
+		<dependency>
+			<groupId>org.jboss.weld.se</groupId>
+			<artifactId>weld-se</artifactId>
+		</dependency>
 	</dependencies>
 </project>
