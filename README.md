@@ -1,4 +1,4 @@
-Auto web authorized network login mechanism
+Auto web authorized network login
 =================================================
 
 This piece of software automatically connects a web authorization based wireless-network.  
