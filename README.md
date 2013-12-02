@@ -26,5 +26,5 @@ The project was launched due to a request by ourselves to automatically login to
      | --- auto-web-auth-core-impl-base     // implementation of api
      | --- auto-web-auth-commons            // some common classes, helper classes
 
- ## Further information
- see doc/tech-info.md for more information
+## Further information
+see doc/tech-info.md for more information
