@@ -1,7 +1,7 @@
 Auto web authorized network login
 =================================================
 
-This piece of software automatically connects a web authorization based wireless-network.  
+This piece of software automatically connects to a web authorization based wireless-network.  
 The project was launched due to a request by ourselves to automatically login to the network of our school.
 
 
@@ -10,6 +10,7 @@ The project was launched due to a request by ourselves to automatically login to
 
 
 ## Used technologies and technical ideas
+ - `JavaEE 6`
  - `Java 1.8`
  - Use `JNI` to access to wireless network API of underlining operating system.
  - Windows support only (at the moment)
