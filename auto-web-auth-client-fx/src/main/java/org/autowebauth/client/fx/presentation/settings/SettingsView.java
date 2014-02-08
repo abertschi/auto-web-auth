@@ -1,7 +1,7 @@
 package org.autowebauth.client.fx.presentation.settings;
 
-import org.autowebauth.client.fx.mvcprovider.FXMLView;
+import org.autowebauth.client.fx.mvcprovider.AbstractView;
 
-public class SettingsView extends FXMLView {
+public class SettingsView extends AbstractView {
 
 }

@@ -8,39 +8,46 @@ import org.autowebauth.core.api.network.provider.NetworkProvider;
  * @author abertschi
  * 
  */
-public class DefaultNetworkFactory implements NetworkFactory {
+public class DefaultNetworkFactory implements NetworkFactory
+{
 
-	private static final String NETWORK_FACTORY_IMPL = "org.autowebauth.core.network.DefaultNetworkFactoryImpl";
+   private static final String NETWORK_FACTORY_IMPL = "org.autowebauth.core.network.factory.DefaultNetworkFactoryImpl";
 
-	NetworkFactory factoryWrapper;
+   NetworkFactory factoryWrapper;
 
-	public DefaultNetworkFactory() {
-		createFactoryImpl();
-	}
+   public DefaultNetworkFactory()
+   {
+      createFactoryImpl();
+   }
 
-	@Override
-	public NetworkProvider getProvider() {
-		// delegate to impl
-		return factoryWrapper.getProvider();
-	}
+   @Override
+   public NetworkProvider getProvider()
+   {
+      // delegate to impl
+      return this.factoryWrapper.getProvider();
+   }
 
-	@Override
-	public NetworkProvider getProviderByClass(
-			Class<? extends NetworkProvider> clazz) {
-		// delegate to impl
-		return factoryWrapper.getProviderByClass(clazz);
-	}
+   @Override
+   public NetworkProvider getProviderByClass(Class<? extends NetworkProvider> clazz)
+   {
+      // delegate to impl
+      return this.factoryWrapper.getProviderByClass(clazz);
+   }
 
-	private void createFactoryImpl() {
-		try {
-			factoryWrapper = (NetworkFactory) Class.forName(
-					NETWORK_FACTORY_IMPL).newInstance();
-		} catch (InstantiationException | IllegalAccessException e) {
-			throw new IllegalArgumentException(
-					"Instanciation of DefaultNetworkFactory not possible", e);
-		} catch (ClassNotFoundException e) {
-			throw new IllegalArgumentException(
-					"DefaultNetworkFactory implementation not found", e);
-		}
-	}
+   private void createFactoryImpl()
+   {
+      try
+      {
+         this.factoryWrapper = (NetworkFactory) Class.forName(NETWORK_FACTORY_IMPL).newInstance();
+      }
+      catch (InstantiationException | IllegalAccessException e)
+      {
+         throw new IllegalArgumentException("Instanciation of DefaultNetworkFactory not possible",
+               e);
+      }
+      catch (ClassNotFoundException e)
+      {
+         throw new IllegalArgumentException("DefaultNetworkFactory implementation not found", e);
+      }
+   }
 }

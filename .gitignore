@@ -1,15 +1,17 @@
 # folders
 **/target/**
 **/.settings/**
-
+.settings/
+/bin
 
 # files
 *.class
 .project
 .classpath
+~*
+*.bak
 
 # Package Files #
 *.jar
 *.war
 *.ear
-/bin
