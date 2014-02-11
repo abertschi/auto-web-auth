@@ -1,6 +1,5 @@
 package org.autowebauth.client.fx.business.configuration.boundary;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -9,6 +8,14 @@ import javax.persistence.EntityManager;
 import org.autowebauth.client.fx.business.configuration.entity.Configuration;
 import org.slf4j.Logger;
 
+/**
+ * 
+ * {@code Boundary} to store {@link Configuration} entities.
+ * 
+ * @author Andrin Bertschi
+ * @since 09.02.2014
+ * 
+ */
 @ApplicationScoped
 public class ConfigurationBoundary
 {
@@ -18,11 +25,6 @@ public class ConfigurationBoundary
 
    @Inject
    private Logger log;
-
-   @PostConstruct
-   void postConstruct()
-   {
-   }
 
    @PreDestroy
    void shutdown()
@@ -42,9 +44,9 @@ public class ConfigurationBoundary
 
    public void save(Configuration c)
    {
-      // this.em.getTransaction().begin();
-      // this.em.merge(c);
-      // this.em.getTransaction().commit();
+      this.em.getTransaction().begin();
+      this.em.merge(c);
+      this.em.getTransaction().commit();
    }
 
    private Configuration loadDefaults()
@@ -56,9 +58,9 @@ public class ConfigurationBoundary
       defaults.put("username", "username");
       defaults.put("password", "password");
 
-      // this.em.getTransaction().begin();
-      // this.em.persist(defaults);
-      // this.em.getTransaction().commit();
+      this.em.getTransaction().begin();
+      this.em.persist(defaults);
+      this.em.getTransaction().commit();
 
       return defaults;
    }

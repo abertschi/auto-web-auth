@@ -17,23 +17,18 @@ import org.autowebauth.client.fx.AppConstants;
 import org.autowebauth.client.fx.business.configuration.control.Configurator;
 
 /**
- * Database persistence provider
+ * Produces {@code EntityManager} and {@code EntityManagerFactory}.
  * 
  * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
  * 
  */
 @ApplicationScoped
 public class DatabaseResources
 {
 
-   /**
-    * The ORM entity manager factory
-    */
    private EntityManagerFactory factory;
 
-   /**
-    * List of created entity managers
-    */
    private List<EntityManager> openedManagers;
 
    @Inject
@@ -80,12 +75,12 @@ public class DatabaseResources
 
    public Properties getConfigs()
    {
-
+      // Starts embedded database
       Properties props = new Properties();
       props.setProperty("hibernate.show_sql", "true");
       props.setProperty("hibernate.format_sql", "true");
       props.setProperty("hibernate.connection.driver_class", "org.h2.Driver");
-      props.setProperty("hibernate.connection.url", "jdbc:h2:~/test");
+      props.setProperty("hibernate.connection.url", "jdbc:h2:~/test2");
       props.setProperty("hibernate.connection.username", "sa");
       props.setProperty("hibernate.connection.password", "");
       props.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");

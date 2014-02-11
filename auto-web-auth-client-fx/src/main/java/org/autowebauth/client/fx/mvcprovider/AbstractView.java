@@ -13,10 +13,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Abstract view representation of MVP (Model-View-Presenter) pattern. This
- * class should be used for javaFX MVP proposes. {@code AbstractView} acts as a
+ * Abstract view representation of {@code MVP (Model-View-Presenter)} pattern.
+ * This class should be used for javaFX MVP proposes. {@code AbstractView} acts
+ * as a
  * passive view. It is single class of access and initializes and provides its
- * corresponding presenter by itself.
+ * corresponding presenter by itself.<br />
  * <b>Example of usage</b>
  * 
  * <pre>
@@ -27,7 +28,7 @@ import org.slf4j.LoggerFactory;
  * presenter.loadSetting(s: Setting)
  * </pre>
  * 
- * In order to work the following conventions have to be used. </b>
+ * In order to work the following conventions have to be used. </br>
  * <b>Naming conventions</b>
  * 
  * <pre>
@@ -56,6 +57,8 @@ public abstract class AbstractView
     * JavaFX FXML Loader
     */
    protected FXMLLoader loader;
+
+   protected Object presenter;
 
    /**
     * Abstract view representation in MVP pattern.
@@ -143,7 +146,15 @@ public abstract class AbstractView
     */
    public Object getPresenter()
    {
-      return this.loader.getController();
+      if (this.presenter == null)
+      {
+         this.presenter = this.loader.getController();
+         if (this.presenter instanceof AbstractPresenter)
+         {
+            ((AbstractPresenter) this.presenter).setView(this);
+         }
+      }
+      return this.presenter;
    }
 
    /**

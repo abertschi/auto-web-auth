@@ -10,6 +10,32 @@ import javax.inject.Inject;
 import org.autowebauth.client.fx.business.configuration.boundary.ConfigurationBoundary;
 import org.slf4j.Logger;
 
+/**
+ * 
+ * This class provides configurations through {@code CDI producer} concept.
+ * It stores, removes and load application configs.
+ * 
+ * <pre>
+ * &#064;Inject
+ * private String url; // Loads config with key com.package.Yourclass.url
+ * 
+ * &#064;Inject
+ * private int port; // Loads config with key com.package.Yourclass.port
+ * </pre>
+ * 
+ * Your're also able to use the {@code Annotation} {@link Configuration} to load
+ * configuration with some custom qualifier.
+ * 
+ * <pre>
+ * &#064;Inject
+ * &#064;Configuration(&quot;database-url&quot;)
+ * private String url; // Loads config 'database-url'
+ * </pre>
+ * 
+ * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
+ */
 @ApplicationScoped
 public class Configurator
 {

@@ -3,6 +3,7 @@ package org.autowebauth.client.fx.business.profile.entity;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,13 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+/**
+ * Profile {@code entity}.
+ * 
+ * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
+ */
 @Entity
 public class Profile
 {
@@ -31,6 +39,7 @@ public class Profile
    @NotBlank
    private String actionType;
 
+   @ElementCollection
    private Map<String, String> properties;
 
    public Profile()

@@ -11,8 +11,20 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import javax.enterprise.util.Nonbinding;
-
+/**
+ * 
+ * {@code Annotation} to determine a configuration.
+ * 
+ * <pre>
+ * &#064;Inject
+ * &#064;Configuration(&quot;database-url&quot;)
+ * private String url;
+ * </pre>
+ * 
+ * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
+ */
 @Inherited
 @Target({ TYPE, METHOD, PARAMETER, FIELD })
 @Retention(RUNTIME)

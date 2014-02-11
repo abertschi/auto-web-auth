@@ -8,6 +8,13 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+/**
+ * User {@code entity}.
+ * 
+ * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
+ */
 @Entity
 public class User
 {

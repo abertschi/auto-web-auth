@@ -16,6 +16,13 @@ import org.autowebauth.core.api.network.provider.NetworkListener;
 import org.autowebauth.core.api.network.provider.NetworkProvider;
 import org.slf4j.Logger;
 
+/**
+ * {@code Dispatcher} for wireless lan connection activities.
+ * 
+ * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
+ */
 @ApplicationScoped
 @Startup
 public class NetworkEventDispatcher implements NetworkListener

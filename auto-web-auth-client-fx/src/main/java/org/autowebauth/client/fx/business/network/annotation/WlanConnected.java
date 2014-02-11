@@ -14,6 +14,13 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
+/**
+ * {@code Qualifier} for connection activities.
+ * 
+ * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
+ */
 @Qualifier
 @Target({ TYPE, METHOD, PARAMETER, FIELD })
 @Retention(RUNTIME)

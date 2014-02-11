@@ -6,10 +6,11 @@ import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 
 /**
- * Start, provide and shutdown Context and Dependency Injection Container.
+ * Starts, provides and shuts down
+ * {@code Context and Dependency Injection Container}.
  * 
  * @author Andrin Bertschi
- * @since 01.12.2013
+ * @since 1.0 (01.12.2013)
  */
 public class DiManager
 {

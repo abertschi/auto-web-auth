@@ -8,7 +8,7 @@ import org.autowebauth.core.network.winos.WinOsNetworkProvider;
 /**
  * Factory to obtain wireless network provider.
  * 
- * @author abertschi
+ * @author Andrin Bertschi
  * @since 15.11.2013
  * 
  */

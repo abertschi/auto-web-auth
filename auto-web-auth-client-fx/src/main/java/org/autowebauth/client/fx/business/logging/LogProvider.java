@@ -8,9 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * CDI Log producer.
+ * Produces a logger.
  * 
  * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
  */
 @ApplicationScoped
 public class LogProvider

@@ -1,12 +1,12 @@
 package org.autowebauth.client.fx.business.registration.entity;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -14,6 +14,13 @@ import javax.validation.constraints.NotNull;
 import org.autowebauth.client.fx.business.profile.entity.Profile;
 import org.hibernate.validator.constraints.NotBlank;
 
+/**
+ * Registration {@code entity}.
+ * 
+ * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
+ */
 @Entity
 public class Registration
 {
@@ -24,7 +31,7 @@ public class Registration
 
    @ManyToOne
    @NotNull
-   @Column(nullable = false)
+   @JoinColumn(nullable = false)
    private Profile profile;
 
    @NotNull
@@ -34,7 +41,7 @@ public class Registration
    private boolean autoConnectIfAvailable;
 
    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-   @Column(nullable = false)
+   @JoinColumn(nullable = false)
    private User user;
 
    public Registration()

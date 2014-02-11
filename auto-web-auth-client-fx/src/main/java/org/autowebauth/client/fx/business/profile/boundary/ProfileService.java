@@ -11,6 +11,13 @@ import javax.persistence.EntityManagerFactory;
 
 import org.autowebauth.client.fx.business.profile.entity.Profile;
 
+/**
+ * {@code Boundary} for {@link Profile} {@code entity}.
+ * 
+ * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
+ */
 @ApplicationScoped
 public class ProfileService
 {

@@ -12,6 +12,13 @@ import javax.persistence.EntityTransaction;
 
 import org.autowebauth.client.fx.business.registration.entity.Registration;
 
+/**
+ * {@code Boundary} for {@link Registration} {@code entity}.
+ * 
+ * @author Andrin Bertschi
+ * @since 1.0 (2014-02-14)
+ * 
+ */
 @ApplicationScoped
 public class RegistrationService
 {
