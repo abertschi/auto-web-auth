@@ -1,0 +1,18 @@
+States:
+
+ViewResume
+
+WorkflowHandler
+	- Queue (FILO)
+	- Stage
+	- Menubar
+	
+	enqueue
+	switch
+	release
+Laden, schliessen
+
+
+Api.showView(View.class, ViewConfigurations)
+Api.showView
+Api.releaseView

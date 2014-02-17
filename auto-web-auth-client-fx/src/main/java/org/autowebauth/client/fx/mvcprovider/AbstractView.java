@@ -47,33 +47,26 @@ import org.slf4j.LoggerFactory;
 public abstract class AbstractView
 {
    private Logger log = LoggerFactory.getLogger(getClass());
-
+   
    /**
     * Suffix for all views
     */
    public static final String DEFAULT_SUFFIX = "view";
-
-   /**
-    * JavaFX FXML Loader
-    */
+   
    protected FXMLLoader loader;
-
+   
    protected Object presenter;
-
-   /**
-    * Abstract view representation in MVP pattern.
-    */
+   
    public AbstractView()
    {
       this.log.debug("Initializing View {}", getClass().getName());
       this.init(getClass(), getFXMLName());
    }
-
+   
    /**
     * Initialize view
     * 
-    * @param clazz
-    *           concrete type of view
+    * @param clazz concrete type of view
     * @param fxmlName
     */
    private void init(Class<? extends AbstractView> clazz, String fxmlName)
@@ -86,7 +79,7 @@ public abstract class AbstractView
          @Override
          public Object call(Class<?> bean)
          {
-            return DiManager.getInstance().lookUp(bean);
+            return DiManager.getInstance().lookup(bean);
          }
       });
       try
@@ -98,13 +91,9 @@ public abstract class AbstractView
          this.log.error(stacktrace2String(e.getCause()));
          throw new IllegalStateException("Not able to create " + fxmlName);
       }
-
       // TODO: add CSS
    }
-
-   /**
-    * Get conventional name of view.
-    */
+   
    String getConventionalName()
    {
       // f.e. settingview
@@ -112,12 +101,12 @@ public abstract class AbstractView
       // remove view suffix
       return removeSuffix(className);
    }
-
+   
    String getConventionalName(String suffix)
    {
       return getConventionalName() + suffix;
    }
-
+   
    String removeSuffix(String clazz)
    {
       if (!clazz.endsWith(DEFAULT_SUFFIX))
@@ -127,56 +116,44 @@ public abstract class AbstractView
       int endIndex = clazz.lastIndexOf(DEFAULT_SUFFIX);
       return clazz.substring(0, endIndex);
    }
-
+   
    /**
     * Get root parent of javafx scene graph.
-    * 
-    * @return root scene
     */
-   public Parent getView()
+   public Parent getRoot()
    {
       Parent p = this.loader.getRoot();
       return p;
    }
-
+   
    /**
     * Get corresponding presenter
-    * 
-    * @return presenter
     */
    public Object getPresenter()
    {
       if (this.presenter == null)
       {
          this.presenter = this.loader.getController();
-         if (this.presenter instanceof AbstractPresenter)
-         {
-            ((AbstractPresenter) this.presenter).setView(this);
-         }
       }
       return this.presenter;
    }
-
+   
    /**
     * Get filename of javafx xml (fxml)
-    * 
-    * @return fxml file
     */
    public String getFXMLName()
    {
       return getConventionalName(".fxml");
    }
-
+   
    /**
     * Get filename of CSS file
-    * 
-    * @return css file
     */
    public String getCSSName()
    {
       return getConventionalName(".css");
    }
-
+   
    private String stacktrace2String(Throwable t)
    {
       StringWriter sw = new StringWriter();
@@ -184,5 +161,5 @@ public abstract class AbstractView
       t.printStackTrace(pw);
       return sw.toString();
    }
-
+   
 }

@@ -35,12 +35,12 @@
         <Tooltip text="Empty Tooltip" />
       </tooltip>
     </ListView>
-    <Button layoutX="42.0" layoutY="274.0" mnemonicParsing="false" prefWidth="70.0" text="Neu">
+    <Button id="newProfileAction" layoutX="42.0" layoutY="274.0" mnemonicParsing="false" onAction="#onNewProfileAction" prefWidth="70.0" text="Neu">
       <tooltip>
         <Tooltip text="Empty Tooltip" />
       </tooltip>
     </Button>
-    <Button layoutX="148.0" layoutY="274.0" mnemonicParsing="false" prefWidth="93.31640625" text="Bearbeiten">
+    <Button layoutX="148.0" layoutY="274.0" mnemonicParsing="false" onAction="#onModifyProfileAction" prefWidth="93.31640625" text="Bearbeiten">
       <tooltip>
         <Tooltip text="Empty Tooltip" />
       </tooltip>
@@ -58,12 +58,12 @@
     <Label layoutX="457.0" layoutY="122.0" prefWidth="144.0" text="Mit Netzwerk verbunden" />
     <Label layoutX="457.0" layoutY="149.0" prefWidth="144.0" text="Erfolgreich" />
     <Separator layoutX="280.0" layoutY="54.0" orientation="VERTICAL" prefHeight="241.00009999999747" />
-    <Button fx:id="startButton" layoutX="317.0" layoutY="202.0" mnemonicParsing="false" prefWidth="70.0" text="Start">
+    <Button fx:id="startButton" layoutX="317.0" layoutY="202.0" mnemonicParsing="false" onAction="#onStartTrackingAction" prefWidth="70.0" text="Start">
       <tooltip>
         <Tooltip text="Empty Tooltip" />
       </tooltip>
     </Button>
-    <Button layoutX="411.0" layoutY="202.0" mnemonicParsing="false" prefWidth="70.0" text="Stop">
+    <Button layoutX="411.0" layoutY="202.0" mnemonicParsing="false" onAction="#onStopTrackingAction" prefWidth="70.0" text="Stop">
       <tooltip>
         <Tooltip text="Empty Tooltip" />
       </tooltip>

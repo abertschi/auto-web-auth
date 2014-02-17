@@ -44,8 +44,6 @@ public class DiManager
 
    /**
     * Boot CDI container.
-    * 
-    * @see {@link DiManager#shutDown()}
     */
    public void startUp()
    {
@@ -73,9 +71,10 @@ public class DiManager
       return this.weldContainer.getBeanManager();
    }
 
-   public Object lookUp(Class<?> bean)
+   @SuppressWarnings("unchecked")
+   public Object lookup(final Class<?> clazz)
    {
-      return this.weldContainer.instance().select(bean).get();
+      return this.weldContainer.instance().select(clazz).get();
    }
 
    public static void main(String[] args)

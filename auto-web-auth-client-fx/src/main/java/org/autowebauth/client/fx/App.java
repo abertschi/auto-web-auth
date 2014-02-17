@@ -1,50 +1,49 @@
 package org.autowebauth.client.fx;
 
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import org.autowebauth.client.fx.mvcprovider.DiManager;
-import org.autowebauth.client.fx.presentation.summary.SummaryPresenter;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
+import javax.enterprise.inject.Produces;
+import javax.enterprise.inject.spi.InjectionPoint;
+import javax.inject.Inject;
+
+import org.autowebauth.client.fx.mvcprovider.StartupStage;
 import org.autowebauth.client.fx.presentation.summary.SummaryView;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-/**
- * Main class
- * 
- * @author Andrin Bertschi
- */
-public class App extends Application
+@ApplicationScoped
+public class App
 {
-
-   private Logger log = LoggerFactory.getLogger(App.class);
-
-   @Override
-   public void start(Stage stage) throws Exception
+   @Inject
+   private Logger log;
+   
+   private Stage stage;
+   
+   public void start(@Observes @StartupStage Stage stage)
    {
-      this.log.info("Starting main application...");
-      DiManager.getInstance().startUp();
-
+      this.log.info("Stage event received");
+      
+      this.stage = stage;
+      showSummaryView();
+   }
+   
+   @Produces
+   public Stage produceStage(InjectionPoint ip)
+   {
+      return this.stage;
+   }
+   
+   private void showSummaryView()
+   {
       SummaryView summary = new SummaryView();
-      SummaryPresenter presenter = (SummaryPresenter) summary.getPresenter();
-      Scene scene = new Scene(summary.getView());
-      stage.setTitle("Auto-Web-Auth");
       final String uri = getClass().getResource("app.css").toExternalForm();
+      Scene scene = new Scene(summary.getRoot());
       scene.getStylesheets().add(uri);
       stage.setScene(scene);
+      stage.setTitle("Auto-Web-Auth");
       stage.show();
    }
-
-   @Override
-   public void stop() throws Exception
-   {
-      DiManager.getInstance().shutDown();
-      this.log.info("Stopping main application...");
-   }
-
-   public static void main(String[] args)
-   {
-      Application.launch(args);
-   }
+   
 }
