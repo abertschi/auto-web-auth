@@ -30,7 +30,7 @@ Some others are made with MS Visio.
 ### Basic usecases
 ![Basic usecases](./doc/design/rendering/14-02-21_basic-usecases.png?raw=true)  
 
-### Further explanations
+#### Further explanations
 A **supersudent** acts as an administrator. He defines **registration**s for his school. A **registration** consists of the same necessary information, the login page would send, if the student was logged in through this page.
 
     <FORM method="post" ACTION="/login.html">  
@@ -41,7 +41,10 @@ A **supersudent** acts as an administrator. He defines **registration**s for his
 Based on these **registration**s, **student**s are now able to create **profile**s for their accounts.  
 After the profile is setup, the *automated web authenticated wireless network login* mechanism is able to login the user automatically. This mechanism is controlled by the **Start** - and **Stop connection tracking** usecases.
 
+### Component diagram
+This picuture is showing the basic components of the application. Keep in mind the application is in a client-only application architecture. Everything is basically the java-fx client.
 
+![Basic usecases](./doc/design/rendering/14-02-21_component-diag-auto-web-auth.png?raw=true)
 
 ## Maven module hierarchy
 
