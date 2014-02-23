@@ -39,8 +39,7 @@ A **supersudent** acts as an administrator. He defines **registration**s for his
     </FORM>
 
 Based on these **registration**s, **student**s are now able to create **profile**s for their accounts.  
-After the profile is setup, the *automated web authenticated wireless network login* mechanism is able to login the user automatically.  
-This mechanism is controlled by the **Start** - and **Stop connection tracking** usecases.
+After the profile is setup, the *automated web authenticated wireless network login* mechanism is able to login the user automatically. This mechanism is controlled by the **Start** - and **Stop connection tracking** usecases.
 
 
 
