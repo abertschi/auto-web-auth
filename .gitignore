@@ -16,3 +16,5 @@
 *.war
 *.ear
 rebel.xml
+auto-web-auth-client-fx/src/main/java/org/autowebauth/client/fx/DemoTransistion.java
+auto-web-auth-client-fx/src/main/java/org/autowebauth/client/fx/DemoTransistionWindow.java

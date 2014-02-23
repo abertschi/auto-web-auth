@@ -1,6 +1,5 @@
 package org.autowebauth.client.fx;
 
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -10,6 +9,7 @@ import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 
 import org.autowebauth.client.fx.mvcprovider.StartupStage;
+import org.autowebauth.client.fx.mvcprovider.screen.ScreenContext;
 import org.autowebauth.client.fx.presentation.summary.SummaryView;
 import org.slf4j.Logger;
 
@@ -39,10 +39,8 @@ public class App
    {
       SummaryView summary = new SummaryView();
       final String uri = getClass().getResource("app.css").toExternalForm();
-      Scene scene = new Scene(summary.getRoot());
-      scene.getStylesheets().add(uri);
-      stage.setScene(scene);
-      stage.setTitle("Auto-Web-Auth");
+      ScreenContext.current().show(summary);
+      stage.getScene().getStylesheets().add(uri);
       stage.show();
    }
    

@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.util.Callback;
 
+import org.autowebauth.client.fx.mvcprovider.screen.ScreenContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -160,6 +161,14 @@ public abstract class AbstractView
       PrintWriter pw = new PrintWriter(sw);
       t.printStackTrace(pw);
       return sw.toString();
+   }
+   
+   public String getTitle() {
+      return "TITLE";
+   }
+   
+   public ScreenContext getContext() {
+      return ScreenContext.current();
    }
    
 }

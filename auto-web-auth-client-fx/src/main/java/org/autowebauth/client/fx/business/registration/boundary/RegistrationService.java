@@ -1,11 +1,11 @@
 package org.autowebauth.client.fx.business.registration.boundary;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -23,7 +23,7 @@ import org.autowebauth.client.fx.business.registration.entity.Registration;
 public class RegistrationService
 {
 
-   @Inject
+   //@Inject
    private EntityManagerFactory emf;
 
    private EntityManager em;
@@ -33,8 +33,8 @@ public class RegistrationService
    @PostConstruct
    public void create()
    {
-      this.em = this.emf.createEntityManager();
-      this.et = this.em.getTransaction();
+//      this.em = this.emf.createEntityManager();
+//      this.et = this.em.getTransaction();
    }
 
    @PreDestroy
@@ -46,7 +46,7 @@ public class RegistrationService
 
    public List<Registration> getAll()
    {
-      return null;
+      return new ArrayList<Registration>();
    }
 
    public Registration save(Registration r)

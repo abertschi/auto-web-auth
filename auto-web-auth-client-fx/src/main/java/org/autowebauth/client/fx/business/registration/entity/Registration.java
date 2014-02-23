@@ -1,9 +1,13 @@
 package org.autowebauth.client.fx.business.registration.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import org.autowebauth.client.fx.business.profile.entity.Profile;
@@ -35,9 +39,9 @@ public class Registration
 
    private boolean autoConnectIfAvailable;
 
-   // @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL,
-   // orphanRemoval = true)
-   // @JoinColumn(nullable = false)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL,
+    orphanRemoval = true)
+   @JoinColumn()
    private User user;
 
    public Registration()

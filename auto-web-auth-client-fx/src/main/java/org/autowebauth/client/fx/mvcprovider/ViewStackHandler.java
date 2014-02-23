@@ -10,6 +10,11 @@ import javax.enterprise.inject.spi.CDI;
 import javax.inject.Inject;
 
 @ApplicationScoped
+@Deprecated
+/**
+ * Use {@link ScreenContext} instead.
+ *
+ */
 public class ViewStackHandler
 {
    @Inject
@@ -101,6 +106,7 @@ public class ViewStackHandler
 //      }
 //   }
    
+   @Deprecated
    private class ViewEntry
    {
       private Stage stage;

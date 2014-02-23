@@ -25,7 +25,7 @@ The project was launched due to a request by my myself to automatically login to
  
 ## Diagrams in lovely UML
 UML diagrams are modeled in astah community version.  
-Some others are made in MS Visio. _Sorry for that_ **:^D**. 
+Some others are made with MS Visio.
 
 ### Basic usecases
 tbd.
