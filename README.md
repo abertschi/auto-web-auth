@@ -30,8 +30,19 @@ Some others are made with MS Visio.
 ### Basic usecases
 ![Basic usecases](./doc/design/rendering/14-02-21_basic-usecases.png?raw=true)  
 
-### Naming
-tbd.
+### Further explanations
+A **supersudent** acts as an administrator. He defines **registration**s for his school. A **registration** consists of the same necessary information, the login page would send, if the student was logged in through this page.
+
+    <FORM method="post" ACTION="/login.html">  
+    	<INPUT type="TEXT" name="username" SIZE="25" MAXLENGTH="80" VALUE="">  
+    	<INPUT type="TEXT" name="password" SIZE="25" MAXLENGTH="80" VALUE="">  
+    </FORM>
+
+Based on these **registration**s, **student**s are now able to create **profile**s for their accounts.  
+After the profile is setup, the *automated web authenticated wireless network login* mechanism is able to login the user automatically.  
+This mechanism is controlled by the **Start** - and **Stop connection tracking** usecases.
+
+
 
 ## Maven module hierarchy
 
