@@ -28,7 +28,7 @@ UML diagrams are modeled in astah community version.
 Some others are made with MS Visio.
 
 ### Basic usecases
-tbd.
+![Basic usecases](./doc/design/rendering/14-02-21_basic-usecases.png?raw=true)  
 
 ### Naming
 tbd.
