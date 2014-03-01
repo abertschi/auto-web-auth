@@ -80,7 +80,7 @@ public class DatabaseResources
       props.setProperty("hibernate.show_sql", "true");
       props.setProperty("hibernate.format_sql", "true");
       props.setProperty("hibernate.connection.driver_class", "org.h2.Driver");
-      props.setProperty("hibernate.connection.url", "jdbc:h2:~/test2");
+      props.setProperty("hibernate.connection.url", "jdbc:h2:~/test2;AUTO_SERVER=TRUE");
       props.setProperty("hibernate.connection.username", "sa");
       props.setProperty("hibernate.connection.password", "");
       props.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");

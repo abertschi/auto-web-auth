@@ -1,5 +1,6 @@
 package org.autowebauth.client.fx.business.profile.boundary;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -41,9 +42,26 @@ public class ProfileService
 
    public List<Profile> getAll()
    {
-      List<Profile> profiles = this.em.createQuery("SELECT * FROM Profile p", Profile.class)
-            .getResultList();
-      return profiles;
+//      List<Profile> profiles = this.em.createQuery("SELECT * FROM Profile p", Profile.class)
+//            .getResultList();
+      List<Profile> returned = new ArrayList<Profile>();
+      System.out.println("GET ALL PROFILE REQUESTED");
+      for (int i = 0; i< 5; i++){
+         Profile p = new Profile();
+         p.setName("name: " + i);
+         returned.add(p);
+      }
+      try
+      {
+         Thread.sleep(5000);
+      }
+      catch (InterruptedException e)
+      {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+      System.out.println("GET ALL PROFILE RETURNED");
+      return returned;
    }
 
    public void save(Profile p)
