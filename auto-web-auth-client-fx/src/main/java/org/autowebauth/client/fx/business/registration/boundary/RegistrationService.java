@@ -6,9 +6,9 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 
 import org.autowebauth.client.fx.business.registration.entity.Registration;
 
@@ -23,22 +23,19 @@ import org.autowebauth.client.fx.business.registration.entity.Registration;
 public class RegistrationService
 {
 
-   //@Inject
+   @Inject
    private EntityManagerFactory emf;
 
    private EntityManager em;
 
-   private EntityTransaction et;
-
    @PostConstruct
-   public void create()
+   void create()
    {
-//      this.em = this.emf.createEntityManager();
-//      this.et = this.em.getTransaction();
+      this.em = this.emf.createEntityManager();
    }
 
    @PreDestroy
-   public void destroy()
+   void destroy()
    {
       this.em.close();
       this.emf.close();
@@ -46,16 +43,26 @@ public class RegistrationService
 
    public List<Registration> getAll()
    {
-      return new ArrayList<Registration>();
+      List<Registration> regists = null;
+      regists = this.em.createQuery("SELECT r FROM Registration r", Registration.class).getResultList();
+      if (regists == null ) {
+         regists = new ArrayList<Registration>();
+      }
+      return regists;
    }
 
-   public Registration save(Registration r)
+   public void save(Registration r)
    {
-      return r;
+      this.em.getTransaction().begin();
+      this.em.persist(r);
+      this.em.getTransaction().commit();
    }
 
    public void remove(Registration r)
    {
+      this.em.getTransaction().begin();
+      this.em.remove(r);
+      this.em.getTransaction().commit();
    }
 
 }

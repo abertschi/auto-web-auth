@@ -11,10 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * User {@code entity}.
@@ -48,12 +46,12 @@ public class User
    
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
-   public long getId()
+   public Long getId()
    {
       return this.idProperty.get();
    }
    
-   public void setId(long id)
+   public void setId(Long id)
    {
       this.idProperty.set(id);
    }
@@ -63,7 +61,7 @@ public class User
       return idProperty;
    }
    
-   @Size(min=4, max=4)
+   @NotEmpty
    public String getName()
    {
       return this.nameProperty.get();
@@ -79,8 +77,6 @@ public class User
       return nameProperty;
    }
    
-   @NotNull
-   @NotBlank
    public String getPassword()
    {
       return this.passwordProperty.get();

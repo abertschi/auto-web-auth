@@ -23,7 +23,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import org.autowebauth.client.fx.business.profile.entity.Profile;
-import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Registration {@code entity}.
@@ -63,12 +63,12 @@ public class Registration
    
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
-   public long getId()
+   public Long getId()
    {
       return idProperty.get();
    }
    
-   public void setId(long idProperty)
+   public void setId(Long idProperty)
    {
       this.idProperty.set(idProperty);
    }
@@ -96,8 +96,7 @@ public class Registration
       return profileProperty;
    }
    
-   @NotNull
-   @NotBlank
+   @NotEmpty
    public String getSsid()
    {
       return this.ssidProperty.get();
@@ -130,6 +129,7 @@ public class Registration
    
    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
    @JoinColumn()
+   @NotNull
    public User getUser()
    {
       return this.userProperty.get();

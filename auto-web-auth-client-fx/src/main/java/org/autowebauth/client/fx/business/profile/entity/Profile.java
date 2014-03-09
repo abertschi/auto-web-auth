@@ -8,7 +8,7 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.ObservableMap;
+import javafx.collections.FXCollections;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -20,7 +20,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.jboss.weld.exceptions.UnsupportedOperationException;
 
 /**
  * Profile {@code entity}.
@@ -64,12 +63,12 @@ public class Profile
    
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
-   public long getId()
+   public Long getId()
    {
       return this.idProperty.get();
    }
    
-   public void setId(long id)
+   public void setId(Long id)
    {
       this.idProperty.set(id);
    }
@@ -138,8 +137,7 @@ public class Profile
    
    public void setProperties(Map<String, String> properties)
    {
-      this.parameterProperty.set((ObservableMap<String, String>) properties); // TODO
-      throw new UnsupportedOperationException("TODO: Check: is operation implementation legal?");
+      this.parameterProperty.set(FXCollections.observableMap(properties)); 
    }
    
    public MapProperty<String, String> parameterProperty()

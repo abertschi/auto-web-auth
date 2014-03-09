@@ -4,7 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import org.autowebauth.client.fx.mvcprovider.extensions.annotation.Startup;
+import org.autowebauth.client.fx.infrastrucutre.extensions.annotation.Startup;
 import org.slf4j.Logger;
 
 /**

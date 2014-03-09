@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+
+<fx:root type="javafx.scene.control.MenuBar" xmlns:fx="http://javafx.com/fxml">
+	<menus>
+		<Menu mnemonicParsing="false" text="Datei">
+			<items>
+				<MenuItem mnemonicParsing="false" text="Einstellungen" />
+				<MenuItem mnemonicParsing="false" text="Schliessen" />
+			</items>
+		</Menu>
+		<Menu mnemonicParsing="false" text="Hilfe">
+			<items>
+				<MenuItem mnemonicParsing="false" text="Hilfe" />
+				<MenuItem mnemonicParsing="false" text="About" />
+			</items>
+		</Menu>
+	</menus>
+</fx:root>
+

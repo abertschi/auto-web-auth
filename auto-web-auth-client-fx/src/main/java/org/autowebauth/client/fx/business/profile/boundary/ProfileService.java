@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import org.autowebauth.client.fx.business.profile.entity.Profile;
+import org.autowebauth.client.fx.infrastrucutre.di.DiManager;
 
 /**
  * {@code Boundary} for {@link Profile} {@code entity}.
@@ -28,13 +29,13 @@ public class ProfileService
    private EntityManager em;
 
    @PostConstruct
-   public void create()
+   void create()
    {
       this.em = this.emf.createEntityManager();
    }
 
    @PreDestroy
-   public void destroy()
+   void destroy()
    {
       this.em.close();
       this.emf.close();
@@ -42,33 +43,18 @@ public class ProfileService
 
    public List<Profile> getAll()
    {
-//      List<Profile> profiles = this.em.createQuery("SELECT * FROM Profile p", Profile.class)
-//            .getResultList();
-      List<Profile> returned = new ArrayList<Profile>();
-      System.out.println("GET ALL PROFILE REQUESTED");
-      for (int i = 0; i< 5; i++){
-         Profile p = new Profile();
-         p.setName("name: " + i);
-         returned.add(p);
+      List<Profile> profiles = this.em.createQuery("SELECT p FROM Profile p", Profile.class)
+            .getResultList();
+      if (profiles == null) {
+         profiles = new ArrayList<Profile>();
       }
-      try
-      {
-         Thread.sleep(5000);
-      }
-      catch (InterruptedException e)
-      {
-         // TODO Auto-generated catch block
-         e.printStackTrace();
-      }
-      System.out.println("GET ALL PROFILE RETURNED");
-      return returned;
+      return profiles;
    }
 
    public void save(Profile p)
    {
       this.em.getTransaction().begin();
-      if (getProfile(p.getId()) == null)
-      {
+      if (p.getId() == null | p.getId() == 0) {
          this.em.persist(p);
       }
       else
@@ -88,6 +74,18 @@ public class ProfileService
    Profile getProfile(long id)
    {
       return this.em.find(Profile.class, id);
+   }
+   
+   public static void main(String[] args)
+   {
+      DiManager.getInstance().startUp();
+      ProfileService s = (ProfileService) DiManager.getInstance().lookup(ProfileService.class);
+      Profile p = new Profile();
+      p.setName("BBW BMS 1");
+      p.setAction("GET");
+      p.setTargetUrl("http://www.google.ch");
+      s.save(p);
+      DiManager.getInstance().shutDown();
    }
 
 }

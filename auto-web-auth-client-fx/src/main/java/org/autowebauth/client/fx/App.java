@@ -8,9 +8,10 @@ import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 
-import org.autowebauth.client.fx.mvcprovider.StartupStage;
-import org.autowebauth.client.fx.mvcprovider.screen.ScreenContext;
-import org.autowebauth.client.fx.presentation.summary.SummaryView;
+import org.autowebauth.client.fx.infrastrucutre.mvp.StartupStage;
+import org.autowebauth.client.fx.infrastrucutre.screen.ScreenContext;
+import org.autowebauth.client.fx.infrastrucutre.screen.lifecycle.CommunicationContext;
+import org.autowebauth.client.fx.presentation.view.summary.SummaryView;
 import org.slf4j.Logger;
 
 @ApplicationScoped
@@ -39,7 +40,10 @@ public class App
    {
       SummaryView summary = new SummaryView();
       final String uri = getClass().getResource("app.css").toExternalForm();
-      ScreenContext.current().show(summary);
+      CommunicationContext c = new CommunicationContext(this.getClass());
+      ScreenContext.current().show(summary, c);
+      stage.setResizable(false);
+      stage.centerOnScreen();
       stage.getScene().getStylesheets().add(uri);
       stage.show();
    }

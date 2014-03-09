@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 import org.autowebauth.client.fx.business.network.annotation.WlanConnected;
 import org.autowebauth.client.fx.business.network.annotation.WlanDisconnected;
-import org.autowebauth.client.fx.mvcprovider.extensions.annotation.Startup;
+import org.autowebauth.client.fx.infrastrucutre.extensions.annotation.Startup;
 import org.autowebauth.core.api.network.AutoWebAuth;
 import org.autowebauth.core.api.network.provider.ConnectionAction;
 import org.autowebauth.core.api.network.provider.ConnectionEvent;

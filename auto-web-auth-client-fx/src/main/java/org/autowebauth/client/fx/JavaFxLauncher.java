@@ -5,8 +5,8 @@ import javafx.stage.Stage;
 
 import javax.enterprise.util.AnnotationLiteral;
 
-import org.autowebauth.client.fx.mvcprovider.DiManager;
-import org.autowebauth.client.fx.mvcprovider.StartupStage;
+import org.autowebauth.client.fx.infrastrucutre.di.DiManager;
+import org.autowebauth.client.fx.infrastrucutre.mvp.StartupStage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
