@@ -104,6 +104,7 @@ public class ScreenContext
    
    /**
     * Show given view on top of screen.
+    * {@link ScreenContext#release(Class)}
     * @return Used stage
     */
    public Stage show(AbstractView view, CommunicationContext communication)
