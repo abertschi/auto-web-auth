@@ -44,20 +44,7 @@ After the profile is setup, the *automated web authenticated wireless network lo
 ### Component diagram
 This picuture is showing the basic components of the application. Keep in mind the application is in a client-only application architecture. Everything is basically the java-fx client.
 
-![Basic usecases](./doc/design/rendering/14-02-21_component-diag-auto-web-auth.png?raw=true)
-
-## Model-View-Presenter
-
-### Basic idea
-![Basic idea MVP](./doc/design/rendering/14-03-13_mvp-core.png?raw=true)
-
-### View navigation mechanism
-![View navigation](./doc/design/rendering/14-03-13_mvp-screencontext.png?raw=true)
-
-![View states](./doc/design/rendering/14-03-13_mvp-view-state.png?raw=true)
-
-![View states annotations](./doc/design/rendering/14-03-13_mvp-view-state-annotations.png?raw=true)
-
+![Basic usecases](./doc/design/rendering/14-02-21_component-diag-auto-web-auth.png?raw=true =250x)
 
 ## Maven module hierarchy
 
