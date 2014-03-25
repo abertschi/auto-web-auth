@@ -19,7 +19,7 @@ The project was launched due to a request by my myself to automatically login to
  - JPA 2.0
  - H2 embedded database
  - Java FX 2+
- - Java 1.7 (maybe 1.8 in a upcoming version?)
+ - JDK 1.7 (maybe 1.8 in a upcoming version?)
  - Apache Maven
  - Java Native Interface (get notifications about network activities of underlining os)
  
