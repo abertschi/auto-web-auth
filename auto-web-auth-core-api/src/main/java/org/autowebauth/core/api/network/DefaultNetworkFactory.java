@@ -8,7 +8,7 @@ import org.autowebauth.core.api.network.provider.NetworkProvider;
  * @author abertschi
  * 
  */
-public class DefaultNetworkFactory implements NetworkFactory
+class DefaultNetworkFactory implements NetworkFactory
 {
    
    private static final String NETWORK_FACTORY_IMPL = "org.autowebauth.core.network.factory.DefaultNetworkFactoryImpl";
@@ -25,13 +25,6 @@ public class DefaultNetworkFactory implements NetworkFactory
    {
       // delegate to impl
       return this.factoryWrapper.getProvider();
-   }
-   
-   @Override
-   public NetworkProvider getProviderByClass(Class<? extends NetworkProvider> clazz)
-   {
-      // delegate to impl
-      return this.factoryWrapper.getProviderByClass(clazz);
    }
    
    private void createFactoryImpl()

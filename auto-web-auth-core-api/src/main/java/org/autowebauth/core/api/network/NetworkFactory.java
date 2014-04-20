@@ -12,5 +12,4 @@ public interface NetworkFactory {
 	
 	NetworkProvider getProvider();
 	
-	NetworkProvider getProviderByClass (Class<? extends NetworkProvider> clazz);
 }
