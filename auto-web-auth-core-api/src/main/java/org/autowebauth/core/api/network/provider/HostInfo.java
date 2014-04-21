@@ -3,11 +3,10 @@ package org.autowebauth.core.api.network.provider;
 /**
  * Information about underlining operating system.
  * 
- * @author abertschi
- *
+ * @author Andrin Bertschi
+ * 
  */
-public interface HostInformation {
-	
-	String getOsName();
-
+public interface HostInfo
+{
+    String getOsName();
 }

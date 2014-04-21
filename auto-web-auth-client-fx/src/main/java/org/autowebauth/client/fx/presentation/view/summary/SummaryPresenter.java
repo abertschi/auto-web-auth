@@ -26,7 +26,7 @@ import org.autowebauth.client.fx.infrastrucutre.screen.lifecycle.CommunicationCo
 import org.autowebauth.client.fx.infrastrucutre.screen.lifecycle.OnViewResume;
 import org.autowebauth.client.fx.presentation.view.createprofile.CreateprofileView;
 import org.autowebauth.client.fx.presentation.view.modifyprofile.ModifyprofileView;
-import org.autowebauth.core.api.network.provider.ConnectionEvent;
+import org.autowebauth.core.api.network.provider.conn.ConnectionEvent;
 import org.slf4j.Logger;
 
 public class SummaryPresenter implements Initializable

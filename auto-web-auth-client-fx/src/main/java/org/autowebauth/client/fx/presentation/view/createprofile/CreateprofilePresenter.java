@@ -31,7 +31,7 @@ import org.autowebauth.client.fx.business.registration.entity.Registration;
 import org.autowebauth.client.fx.business.registration.entity.User;
 import org.autowebauth.client.fx.business.validation.WebauthValidator;
 import org.autowebauth.client.fx.infrastrucutre.screen.ScreenContext;
-import org.autowebauth.core.api.network.provider.Connection;
+import org.autowebauth.core.api.network.provider.conn.Connection;
 import org.slf4j.Logger;
 
 public class CreateprofilePresenter implements Initializable

@@ -1,42 +1,45 @@
 package org.autowebauth.core.api.network.provider;
 
-import java.net.ConnectException;
 import java.util.List;
+
+import org.autowebauth.core.api.network.provider.conn.Connection;
+import org.autowebauth.core.api.network.provider.conn.NetworkListener;
 
 /**
  * 
- * @author abertschi
+ * @author Andrin Bertschi
  * 
  */
-public interface NetworkProvider {
+public interface NetworkProvider
+{
 
-	/**
-	 * Get information about underlining operating system.
-	 * 
-	 * @return see description.
-	 */
-	HostInformation getHost();
+    /**
+     * Get information about underlining operating system.
+     */
+    HostInfo getHost();
 
-	/**
-	 * Register a listener to get information about connection activities.
-	 * 
-	 * @param cl
-	 */
-	void registerListener(NetworkListener cl);
+    /**
+     * Register a listener to get information about connection activities.
+     */
+    void registerListener(NetworkListener cl);
 
-	/**
-	 * Get current connected connection
-	 * 
-	 * @return null if no connection estabilished.
-	 */
-	Connection getEstabilishedConnection();
+    /**
+     * Get active connection
+     * 
+     * @return null if no connection active.
+     */
+    Connection getConnection();
 
-	/**
-	 * Get a list of all available connections
-	 * 
-	 * @return see description.
-	 */
-	List<Connection> getConnections();
+    /**
+     * Get a list of all available connections
+     * 
+     * @return see description.
+     */
+    List<Connection> getConnections();
 
-	void connect(Connection c) throws ConnectException;
+    void connect(Connection c);
+
+    void disconnect(Connection c);
+
+    void disconnect();
 }

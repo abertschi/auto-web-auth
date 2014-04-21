@@ -3,7 +3,7 @@ package org.autowebauth.core.api.network;
 /**
  * Factory to obtain wireless network provider.
  * 
- * @author abertschi
+ * @author Andrin Bertschi
  * @since 15.11.2013
  * 
  */
@@ -20,8 +20,6 @@ public class AutoWebAuth
 
     /**
      * Get default factory.
-     * 
-     * @return see description
      */
     public static NetworkFactory getFactory()
     {
@@ -39,11 +37,13 @@ public class AutoWebAuth
         try
         {
             return (NetworkFactory) clazz.newInstance();
-        } catch (InstantiationException e)
+        }
+        catch (InstantiationException e)
         {
             new IllegalArgumentException(
                     "Not able to instanciate given network factory", e);
-        } catch (IllegalAccessException e)
+        }
+        catch (IllegalAccessException e)
         {
             new IllegalArgumentException(e);
         }

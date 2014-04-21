@@ -12,23 +12,18 @@ import org.autowebauth.core.network.winos.WinOsNetworkProvider;
  * @since 15.11.2013
  * 
  */
-public class DefaultNetworkFactoryImpl implements NetworkFactory
+public class MultiOsNetworkFactory implements NetworkFactory
 {
 
     private static final String OS = System.getProperty("os.name")
             .toLowerCase();
 
-    /**
-     * Factory class
-     */
-    public DefaultNetworkFactoryImpl()
+    public MultiOsNetworkFactory()
     {
     }
 
     /**
      * Get operating system dependent {@link NetworkProvider}
-     * 
-     * @return see description
      */
     @Override
     public NetworkProvider getProvider()
@@ -47,6 +42,12 @@ public class DefaultNetworkFactoryImpl implements NetworkFactory
         return provider;
     }
 
+    @Override
+    public NetworkProvider getProvider(Class<? extends NetworkProvider> type)
+    {
+        return null;
+    }
+
     private static boolean isWindows()
     {
         return (OS.indexOf("win") >= 0);
@@ -61,4 +62,5 @@ public class DefaultNetworkFactoryImpl implements NetworkFactory
     {
         return (OS.indexOf("nux") >= 0);
     }
+
 }
