@@ -3,6 +3,9 @@ Auto web authenticated wireless network login
 
 This piece of software allows users to automatically connect to a web authenticated wireless network. 
 The project was launched due to a request by my myself to automatically login to my school network.
+  
+  
+  [![Build Status](https://travis-ci.org/abertschi/auto-web-auth.svg?branch=master)](https://travis-ci.org/abertschi/auto-web-auth)
 
 ## Motivation
  - Send the necessary HTTP request, the browser would send if the user was logged in through the login page.
