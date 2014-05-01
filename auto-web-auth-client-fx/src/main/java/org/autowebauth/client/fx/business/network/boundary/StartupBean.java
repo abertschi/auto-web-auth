@@ -15,15 +15,13 @@ import org.slf4j.Logger;
  */
 @Startup
 @ApplicationScoped
-public class StartupBean
-{
+public class StartupBean {
 
-   @Inject
-   private Logger log;
+    @Inject
+    private Logger log;
 
-   @PostConstruct
-   void postConstruct()
-   {
-      this.log.info("HELLO FROM @Startup Bean");
-   }
+    @PostConstruct
+    void postConstruct() {
+	this.log.info("HELLO FROM @Startup Bean");
+    }
 }

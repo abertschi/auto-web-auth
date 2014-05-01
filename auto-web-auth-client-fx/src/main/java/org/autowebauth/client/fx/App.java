@@ -17,35 +17,35 @@ import org.slf4j.Logger;
 @ApplicationScoped
 public class App
 {
-   @Inject
-   private Logger log;
-   
-   private Stage stage;
-   
-   public void start(@Observes @StartupStage Stage stage)
-   {
-      this.log.info("Stage event received");
-      
-      this.stage = stage;
-      showSummaryView();
-   }
-   
-   @Produces
-   public Stage produceStage(InjectionPoint ip)
-   {
-      return this.stage;
-   }
-   
-   private void showSummaryView()
-   {
-      SummaryView summary = new SummaryView();
-      final String uri = getClass().getResource("app.css").toExternalForm();
-      CommunicationContext c = new CommunicationContext(this.getClass());
-      ScreenContext.current().show(summary, c);
-      stage.setResizable(false);
-      stage.centerOnScreen();
-      stage.getScene().getStylesheets().add(uri);
-      stage.show();
-   }
-   
+    @Inject
+    private Logger log;
+
+    private Stage stage;
+
+    public void start(@Observes @StartupStage Stage stage)
+    {
+        this.log.info("Stage event received");
+
+        this.stage = stage;
+        showSummaryView();
+    }
+
+    @Produces
+    public Stage produceStage(InjectionPoint ip)
+    {
+        return this.stage;
+    }
+
+    private void showSummaryView()
+    {
+        SummaryView summary = new SummaryView();
+        final String uri = getClass().getResource("app.css").toExternalForm();
+        CommunicationContext c = new CommunicationContext(this.getClass());
+        ScreenContext.current().show(summary, c);
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.getScene().getStylesheets().add(uri);
+        stage.show();
+    }
+
 }

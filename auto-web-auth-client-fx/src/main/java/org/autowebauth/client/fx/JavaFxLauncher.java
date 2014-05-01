@@ -1,5 +1,8 @@
 package org.autowebauth.client.fx;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -17,7 +20,6 @@ import org.slf4j.LoggerFactory;
  */
 public class JavaFxLauncher extends Application
 {
-
     private Logger log = LoggerFactory.getLogger(JavaFxLauncher.class);
 
     @Override
@@ -28,7 +30,8 @@ public class JavaFxLauncher extends Application
 
         // Fire Startup Event with primary stage.
         DiManager.getInstance().getBeanManager()
-                .fireEvent(stage, new AnnotationLiteral<StartupStage>(){});
+                .fireEvent(stage, new AnnotationLiteral<StartupStage>() {
+                });
     }
 
     @Override

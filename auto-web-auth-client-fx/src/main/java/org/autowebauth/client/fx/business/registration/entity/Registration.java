@@ -36,113 +36,113 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Access(AccessType.PROPERTY)
 public class Registration
 {
-   private LongProperty idProperty;
-   
-   private ObjectProperty<Profile> profileProperty;
-   
-   private StringProperty ssidProperty;
-   
-   private BooleanProperty autoConnectIfAvailableProperty;
-   
-   private ObjectProperty<User> userProperty;
-   
-   public Registration()
-   {
-      this.idProperty = new SimpleLongProperty();
-      this.profileProperty = new SimpleObjectProperty<Profile>();
-      this.ssidProperty = new SimpleStringProperty();
-      this.autoConnectIfAvailableProperty = new SimpleBooleanProperty(true);
-      this.userProperty = new SimpleObjectProperty<User>();
-   }
-   
-   public Registration(String ssid)
-   {
-      this();
-      this.ssidProperty.set(ssid);
-   }
-   
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
-   public Long getId()
-   {
-      return idProperty.get();
-   }
-   
-   public void setId(Long idProperty)
-   {
-      this.idProperty.set(idProperty);
-   }
-   
-   public LongProperty idProperty()
-   {
-      return idProperty;
-   }
-   
-   @ManyToOne
-   @NotNull
-   @JoinColumn(nullable = false)
-   public Profile getProfile()
-   {
-      return this.profileProperty.get();
-   }
-   
-   public void setProfile(Profile profile)
-   {
-      this.profileProperty.set(profile);
-   }
-   
-   public ObjectProperty<Profile> profileProperty()
-   {
-      return profileProperty;
-   }
-   
-   @NotEmpty
-   public String getSsid()
-   {
-      return this.ssidProperty.get();
-   }
-   
-   public void setSsid(String ssid)
-   {
-      this.ssidProperty.set(ssid);
-   }
-   
-   public StringProperty ssidProperty()
-   {
-      return ssidProperty;
-   }
-   
-   public boolean isAutoConnectIfAvailable()
-   {
-      return this.autoConnectIfAvailableProperty.get();
-   }
-   
-   public void setAutoConnectIfAvailable(boolean autoConnectIfAvailable)
-   {
-      this.autoConnectIfAvailableProperty.set(autoConnectIfAvailable);
-   }
-   
-   public BooleanProperty autoConnectIfAvailableProperty()
-   {
-      return autoConnectIfAvailableProperty;
-   }
-   
-   @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-   @JoinColumn()
-   @NotNull
-   public User getUser()
-   {
-      return this.userProperty.get();
-   }
-   
-   public void setUser(User u)
-   {
-      this.userProperty.set(u);
-   }
-   
-   public ObjectProperty<User> userProperty()
-   {
-      return userProperty;
-   }
-   
+    private LongProperty idProperty;
+
+    private ObjectProperty<Profile> profileProperty;
+
+    private StringProperty ssidProperty;
+
+    private BooleanProperty autoConnectIfAvailableProperty;
+
+    private ObjectProperty<User> userProperty;
+
+    public Registration()
+    {
+        this.idProperty = new SimpleLongProperty();
+        this.profileProperty = new SimpleObjectProperty<Profile>();
+        this.ssidProperty = new SimpleStringProperty();
+        this.autoConnectIfAvailableProperty = new SimpleBooleanProperty(true);
+        this.userProperty = new SimpleObjectProperty<User>();
+    }
+
+    public Registration(String ssid)
+    {
+        this();
+        this.ssidProperty.set(ssid);
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId()
+    {
+        return idProperty.get();
+    }
+
+    public void setId(Long idProperty)
+    {
+        this.idProperty.set(idProperty);
+    }
+
+    public LongProperty idProperty()
+    {
+        return idProperty;
+    }
+
+    @ManyToOne
+    @NotNull
+    @JoinColumn(nullable = false)
+    public Profile getProfile()
+    {
+        return this.profileProperty.get();
+    }
+
+    public void setProfile(Profile profile)
+    {
+        this.profileProperty.set(profile);
+    }
+
+    public ObjectProperty<Profile> profileProperty()
+    {
+        return profileProperty;
+    }
+
+    @NotEmpty
+    public String getSsid()
+    {
+        return this.ssidProperty.get();
+    }
+
+    public void setSsid(String ssid)
+    {
+        this.ssidProperty.set(ssid);
+    }
+
+    public StringProperty ssidProperty()
+    {
+        return ssidProperty;
+    }
+
+    public boolean isAutoConnectIfAvailable()
+    {
+        return this.autoConnectIfAvailableProperty.get();
+    }
+
+    public void setAutoConnectIfAvailable(boolean autoConnectIfAvailable)
+    {
+        this.autoConnectIfAvailableProperty.set(autoConnectIfAvailable);
+    }
+
+    public BooleanProperty autoConnectIfAvailableProperty()
+    {
+        return autoConnectIfAvailableProperty;
+    }
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn()
+    @NotNull
+    public User getUser()
+    {
+        return this.userProperty.get();
+    }
+
+    public void setUser(User u)
+    {
+        this.userProperty.set(u);
+    }
+
+    public ObjectProperty<User> userProperty()
+    {
+        return userProperty;
+    }
+
 }

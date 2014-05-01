@@ -30,127 +30,108 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Entity
 @Access(AccessType.PROPERTY)
-public class Profile
-{
-   
-   private LongProperty idProperty;
-   
-   private StringProperty nameProperty;
-   
-   private StringProperty targetUrlProperty;
-   
-   private StringProperty actionProperty;
-   
-   /**
-    * Form parameters
-    */
-   private MapProperty<String, String> parameterProperty;
-   
-   public Profile()
-   {
-      this.idProperty = new SimpleLongProperty();
-      this.targetUrlProperty = new SimpleStringProperty();
-      this.actionProperty = new SimpleStringProperty();
-      this.parameterProperty = new SimpleMapProperty<String, String>();
-      this.nameProperty = new SimpleStringProperty();
-   }
-   
-   public Profile(String name)
-   {
-      this();
-      this.nameProperty.set(name);
-   }
-   
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
-   public Long getId()
-   {
-      return this.idProperty.get();
-   }
-   
-   public void setId(Long id)
-   {
-      this.idProperty.set(id);
-   }
-   
-   public LongProperty idProperty()
-   {
-      return this.idProperty;
-   }
-   
-   @NotNull
-   @NotBlank
-   public String getName()
-   {
-      return this.nameProperty.get();
-   }
-   
-   public void setName(String name)
-   {
-      this.nameProperty.set(name);
-   }
-   
-   public StringProperty nameProperty()
-   {
-      return this.nameProperty;
-   }
-   
-   @NotNull
-   @NotBlank
-   public String getTargetUrl()
-   {
-      return this.targetUrlProperty.get();
-   }
-   
-   public void setTargetUrl(String targetUrl)
-   {
-      this.targetUrlProperty.set(targetUrl);
-   }
-   
-   public StringProperty targetUrlProperty()
-   {
-      return this.targetUrlProperty;
-   }
-   
-   @NotNull
-   @NotBlank
-   public String getAction()
-   {
-      return this.actionProperty.get();
-   }
-   
-   public void setAction(String action)
-   {
-      this.actionProperty.set(action);
-   }
-   
-   public StringProperty actionProperty()
-   {
-      return this.actionProperty;
-   }
-   
-   @ElementCollection
-   public Map<String, String> getProperties()
-   {
-      return this.parameterProperty.get();
-   }
-   
-   public void setProperties(Map<String, String> properties)
-   {
-      this.parameterProperty.set(FXCollections.observableMap(properties)); 
-   }
-   
-   public MapProperty<String, String> parameterProperty()
-   {
-      return this.parameterProperty;
-   }
-   
-   @Override
-   public String toString()
-   {
-      return "Profile [idProperty=" + idProperty + ", nameProperty=" + nameProperty
-            + ", targetUrlProperty=" + targetUrlProperty + ", actionProperty=" + actionProperty
-            + ", parameterProperty=" + parameterProperty + "]";
-   }
-   
+public class Profile {
+
+    private LongProperty idProperty;
+
+    private StringProperty nameProperty;
+
+    private StringProperty targetUrlProperty;
+
+    private StringProperty actionProperty;
+
+    /**
+     * Form parameters
+     */
+    private MapProperty<String, String> parameterProperty;
+
+    public Profile() {
+	this.idProperty = new SimpleLongProperty();
+	this.targetUrlProperty = new SimpleStringProperty();
+	this.actionProperty = new SimpleStringProperty();
+	this.parameterProperty = new SimpleMapProperty<String, String>();
+	this.nameProperty = new SimpleStringProperty();
+    }
+
+    public Profile(String name) {
+	this();
+	this.nameProperty.set(name);
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+	return this.idProperty.get();
+    }
+
+    public void setId(Long id) {
+	this.idProperty.set(id);
+    }
+
+    public LongProperty idProperty() {
+	return this.idProperty;
+    }
+
+    @NotNull
+    @NotBlank
+    public String getName() {
+	return this.nameProperty.get();
+    }
+
+    public void setName(String name) {
+	this.nameProperty.set(name);
+    }
+
+    public StringProperty nameProperty() {
+	return this.nameProperty;
+    }
+
+    @NotNull
+    @NotBlank
+    public String getTargetUrl() {
+	return this.targetUrlProperty.get();
+    }
+
+    public void setTargetUrl(String targetUrl) {
+	this.targetUrlProperty.set(targetUrl);
+    }
+
+    public StringProperty targetUrlProperty() {
+	return this.targetUrlProperty;
+    }
+
+    @NotNull
+    @NotBlank
+    public String getAction() {
+	return this.actionProperty.get();
+    }
+
+    public void setAction(String action) {
+	this.actionProperty.set(action);
+    }
+
+    public StringProperty actionProperty() {
+	return this.actionProperty;
+    }
+
+    @ElementCollection
+    public Map<String, String> getProperties() {
+	return this.parameterProperty.get();
+    }
+
+    public void setProperties(Map<String, String> properties) {
+	this.parameterProperty.set(FXCollections.observableMap(properties));
+    }
+
+    public MapProperty<String, String> parameterProperty() {
+	return this.parameterProperty;
+    }
+
+    @Override
+    public String toString() {
+	return "Profile [idProperty=" + idProperty + ", nameProperty=" + nameProperty
+		+ ", targetUrlProperty=" + targetUrlProperty + ", actionProperty=" + actionProperty
+		+ ", parameterProperty=" + parameterProperty + "]";
+    }
+
 }

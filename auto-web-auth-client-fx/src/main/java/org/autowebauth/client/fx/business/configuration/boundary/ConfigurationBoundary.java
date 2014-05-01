@@ -20,49 +20,49 @@ import org.slf4j.Logger;
 public class ConfigurationBoundary
 {
 
-   @Inject
-   private EntityManager em;
+    @Inject
+    private EntityManager em;
 
-   @Inject
-   private Logger log;
+    @Inject
+    private Logger log;
 
-   @PreDestroy
-   void shutdown()
-   {
-      this.em.close();
-   }
+    @PreDestroy
+    void shutdown()
+    {
+        this.em.close();
+    }
 
-   public Configuration loadConfiguration()
-   {
-      Configuration c = this.em.find(Configuration.class, Configuration.ID);
-      if (c == null)
-      {
-         c = loadDefaults();
-      }
-      return c;
-   }
+    public Configuration loadConfiguration()
+    {
+        Configuration c = this.em.find(Configuration.class, Configuration.ID);
+        if (c == null)
+        {
+            c = loadDefaults();
+        }
+        return c;
+    }
 
-   public void save(Configuration c)
-   {
-      this.em.getTransaction().begin();
-      this.em.merge(c);
-      this.em.getTransaction().commit();
-   }
+    public void save(Configuration c)
+    {
+        this.em.getTransaction().begin();
+        this.em.merge(c);
+        this.em.getTransaction().commit();
+    }
 
-   private Configuration loadDefaults()
-   {
-      this.log.info("Default configurations are loaded");
+    private Configuration loadDefaults()
+    {
+        this.log.info("Default configurations are loaded");
 
-      Configuration defaults = new Configuration();
-      defaults.put("port", "2001");
-      defaults.put("username", "username");
-      defaults.put("password", "password");
+        Configuration defaults = new Configuration();
+        defaults.put("port", "2001");
+        defaults.put("username", "username");
+        defaults.put("password", "password");
 
-      this.em.getTransaction().begin();
-      this.em.persist(defaults);
-      this.em.getTransaction().commit();
+        this.em.getTransaction().begin();
+        this.em.persist(defaults);
+        this.em.getTransaction().commit();
 
-      return defaults;
-   }
+        return defaults;
+    }
 
 }

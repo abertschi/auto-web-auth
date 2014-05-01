@@ -21,71 +21,62 @@ import org.autowebauth.client.fx.infrastrucutre.di.DiManager;
  * 
  */
 @ApplicationScoped
-public class ProfileService
-{
-   @Inject
-   private EntityManagerFactory emf;
+public class ProfileService {
+    
+    @Inject
+    private EntityManagerFactory emf;
 
-   private EntityManager em;
+    private EntityManager em;
 
-   @PostConstruct
-   void create()
-   {
-      this.em = this.emf.createEntityManager();
-   }
+    @PostConstruct
+    void create() {
+	this.em = this.emf.createEntityManager();
+    }
 
-   @PreDestroy
-   void destroy()
-   {
-      this.em.close();
-      this.emf.close();
-   }
+    @PreDestroy
+    void destroy() {
+	this.em.close();
+	this.emf.close();
+    }
 
-   public List<Profile> getAll()
-   {
-      List<Profile> profiles = this.em.createQuery("SELECT p FROM Profile p", Profile.class)
-            .getResultList();
-      if (profiles == null) {
-         profiles = new ArrayList<Profile>();
-      }
-      return profiles;
-   }
+    public List<Profile> getAll() {
+	List<Profile> profiles = this.em.createQuery("SELECT p FROM Profile p", Profile.class)
+		.getResultList();
+	if (profiles == null) {
+	    profiles = new ArrayList<Profile>();
+	}
+	return profiles;
+    }
 
-   public void save(Profile p)
-   {
-      this.em.getTransaction().begin();
-      if (p.getId() == null | p.getId() == 0) {
-         this.em.persist(p);
-      }
-      else
-      {
-         this.em.merge(p);
-      }
-      this.em.getTransaction().commit();
-   }
+    public void save(Profile p) {
+	this.em.getTransaction().begin();
+	if (p.getId() == null | p.getId() == 0) {
+	    this.em.persist(p);
+	} else {
+	    this.em.merge(p);
+	}
+	this.em.getTransaction().commit();
+    }
 
-   public void remove(Profile p)
-   {
-      this.em.getTransaction().begin();
-      this.em.remove(p);
-      this.em.getTransaction().commit();
-   }
+    public void remove(Profile p) {
+	this.em.getTransaction().begin();
+	this.em.remove(p);
+	this.em.getTransaction().commit();
+    }
 
-   Profile getProfile(long id)
-   {
-      return this.em.find(Profile.class, id);
-   }
-   
-   public static void main(String[] args)
-   {
-      DiManager.getInstance().startUp();
-      ProfileService s = (ProfileService) DiManager.getInstance().lookup(ProfileService.class);
-      Profile p = new Profile();
-      p.setName("BBW BMS 1");
-      p.setAction("GET");
-      p.setTargetUrl("http://www.google.ch");
-      s.save(p);
-      DiManager.getInstance().shutDown();
-   }
+    Profile getProfile(long id) {
+	return this.em.find(Profile.class, id);
+    }
+
+    public static void main(String[] args) {
+	DiManager.getInstance().startUp();
+	ProfileService s = (ProfileService) DiManager.getInstance().lookup(ProfileService.class);
+	Profile p = new Profile();
+	p.setName("BBW BMS 1");
+	p.setAction("GET");
+	p.setTargetUrl("http://www.google.ch");
+	s.save(p);
+	DiManager.getInstance().shutDown();
+    }
 
 }

@@ -17,10 +17,10 @@ import org.slf4j.LoggerFactory;
 @ApplicationScoped
 public class LogProvider
 {
-   @Produces
-   public Logger produceLogger(InjectionPoint ip)
-   {
-      return LoggerFactory.getLogger(ip.getMember().getDeclaringClass());
-   }
+    @Produces
+    public Logger produceLogger(InjectionPoint ip)
+    {
+        return LoggerFactory.getLogger(ip.getMember().getDeclaringClass());
+    }
 
 }
