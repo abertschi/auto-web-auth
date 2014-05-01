@@ -18,7 +18,7 @@ public class WinOsNetworkProvider implements NetworkProvider
     public WinOsNetworkProvider()
     {
         this.listeners = new ArrayList<NetworkListener>();
-        tmp();
+        tmp(); 
     }
 
     @Override
