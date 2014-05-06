@@ -41,7 +41,7 @@ public class AutoWebAuth
         catch (InstantiationException e)
         {
             new IllegalArgumentException(
-                    "Not able to instanciate given network factory", e);
+                "Not able to instanciate given network factory", e);
         }
         catch (IllegalAccessException e)
         {

@@ -15,8 +15,7 @@ import org.autowebauth.core.network.winos.WinOsNetworkProvider;
 public class MultiOsNetworkFactory implements NetworkFactory
 {
 
-    private static final String OS = System.getProperty("os.name")
-            .toLowerCase();
+    private static final String OS = System.getProperty("os.name").toLowerCase();
 
     public MultiOsNetworkFactory()
     {
@@ -27,7 +26,7 @@ public class MultiOsNetworkFactory implements NetworkFactory
      */
     @Override
     public NetworkProvider getProvider()
-            throws NetworkProvidementNotSupportedException
+        throws NetworkProvidementNotSupportedException
     {
         NetworkProvider provider = null;
         if (isWindows())
@@ -37,7 +36,7 @@ public class MultiOsNetworkFactory implements NetworkFactory
         else
         {
             throw new NetworkProvidementNotSupportedException(
-                    "Your operating system isn't supported yet");
+                "Your operating system isn't supported yet");
         }
         return provider;
     }

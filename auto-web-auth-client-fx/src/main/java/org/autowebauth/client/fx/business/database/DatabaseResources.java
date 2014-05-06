@@ -37,8 +37,7 @@ public class DatabaseResources
     public void init()
     {
         this.openedManagers = new LinkedList<EntityManager>();
-        this.factory = Persistence.createEntityManagerFactory(
-                AppConstants.JPA_PERST_UNIT, getConfigs());
+        this.factory = Persistence.createEntityManagerFactory(AppConstants.JPA_PERST_UNIT, getConfigs());
     }
 
     @Produces
@@ -79,12 +78,10 @@ public class DatabaseResources
         props.setProperty("hibernate.show_sql", "true");
         props.setProperty("hibernate.format_sql", "true");
         props.setProperty("hibernate.connection.driver_class", "org.h2.Driver");
-        props.setProperty("hibernate.connection.url",
-                "jdbc:h2:data;AUTO_SERVER=TRUE");
+        props.setProperty("hibernate.connection.url","jdbc:h2:data;AUTO_SERVER=TRUE");
         props.setProperty("hibernate.connection.username", "sa");
         props.setProperty("hibernate.connection.password", "");
-        props.setProperty("hibernate.dialect",
-                "org.hibernate.dialect.H2Dialect");
+        props.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
         props.setProperty("hibernate.hbm2ddl.auto", "update");
 
         return props;

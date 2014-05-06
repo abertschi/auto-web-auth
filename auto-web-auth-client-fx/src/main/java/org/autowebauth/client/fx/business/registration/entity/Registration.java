@@ -79,7 +79,7 @@ public class Registration
     }
 
     @ManyToOne
-    @NotNull
+    // @NotNull
     @JoinColumn(nullable = false)
     public Profile getProfile()
     {

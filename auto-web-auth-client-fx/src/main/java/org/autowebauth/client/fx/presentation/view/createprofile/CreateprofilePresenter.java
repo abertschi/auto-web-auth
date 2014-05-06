@@ -36,161 +36,153 @@ import org.slf4j.Logger;
 
 public class CreateprofilePresenter implements Initializable
 {
-   
-   // --------------------------------------
-   // services
-   // --------------------------------------
-   
-   @Inject
-   Logger log;
-   
-   @Inject
-   Stage stage;
-   
-   @Inject
-   RegistrationService registrationBoundary;
-   
-   @Inject
-   ProfileService profieBoundary;
-   
-   @Inject
-   NetworkEventDispatcher networkEvents;
-   
-   /**
-    * The new registration, the user creates.
-    */
-   private Registration registration;
-   
-   // --------------------------------------
-   // UI
-   // --------------------------------------
-   
-   @FXML
-   private Label lbSelectRegistration;
-   
-   @FXML
-   private Label lbPassword;
-   
-   @FXML
-   private Label lbSelectNetwork;
-   
-   @FXML
-   private Label lbUsername;
-   
-   @FXML
-   private ComboBox<Profile> cbRegistrationSelection;
-   
-   @FXML
-   private TextField tfNetwork;
-   
-   @FXML
-   private Button btSearchNetworks;
-   
-   @FXML
-   private TextField tfUsername;
-   
-   @FXML
-   private TextField tfPassword;
-   
-   @FXML
-   private CheckBox loginIfConnected;
-   
-   // --------------------------------------
-   // methods
-   // --------------------------------------
-   
-   @PostConstruct
-   public void cdiInit()
-   {
-      this.stage.getScene().getWindow().setOnCloseRequest(new OnProfileAbortHandler());
-   }
-   
-   /**
-    * Initialize injected FXML components.
-    */
-   @Override
-   public void initialize(URL location, ResourceBundle resources)
-   {
-      this.registration = new Registration();
-      bindRegistration(registration);
-      
-      Platform.runLater(new Runnable()
-      {
-         @Override
-         public void run()
-         {
-            cbRegistrationSelection.setItems(FXCollections.observableList(profieBoundary.getAll()));
-         }
-      });
-   }
-   
-   private void bindRegistration(Registration regist)
-   {
-      User user = new User();
-      regist.setUser(user);
-      Bindings.bindBidirectional(this.tfUsername.textProperty(), user.nameProperty());
-      Bindings.bindBidirectional(this.tfPassword.textProperty(), user.passwordProperty());
-      Bindings.bindBidirectional(this.tfNetwork.textProperty(), regist.ssidProperty());
-      Bindings.bindBidirectional(this.cbRegistrationSelection.valueProperty(),regist.profileProperty());
-      Bindings.bindBidirectional(this.loginIfConnected.selectedProperty(),regist.autoConnectIfAvailableProperty());
-   }
-   
-   private Set<ConstraintViolation<Object>> validateRegistration(Registration regist)
-   {
-      WebauthValidator v = new WebauthValidator();
-//      v.validateAndColor(regist.getProfile(), this.lbSelectRegistration);
-      v.validateAndColor(regist.getUser().getName(), this.lbUsername);
-      v.validateAndColor(regist.getUser().getPassword(), this.lbPassword);
-      v.validateAndColor(regist.getSsid(), this.lbSelectNetwork);
-      
-      this.log.info("Validation constraints occurred: {}", v.getOccurredViolationConstraints());
-      return v.getOccurredViolationConstraints();
-   }
-   
-   // --------------------------------------
-   // actions
-   // --------------------------------------
-   
-   /**
-    * Action: search networks
-    */
-   @FXML
-   void onSearchNetworks(ActionEvent event)
-   {
-      List<Connection> connections = networkEvents.getNetworkProvider().getConnections();
-      if (connections != null)
-      {
-      }
-   }
-   
-   /**
-    * Action: Save the profile.
-    */
-   @FXML
-   void onProfileCreated(ActionEvent event)
-   {
-      Set<ConstraintViolation<Object>> violations = validateRegistration(this.registration);
-      if (violations == null || violations.size() == 0)
-      {
-         this.registrationBoundary.save(this.registration);
-         ScreenContext.current().release(CreateprofileView.class);
-      }
-   }
-   
-   /**
-    * Action: Abort creation.
-    */
-   class OnProfileAbortHandler implements EventHandler<javafx.stage.WindowEvent>
-   {
-      @Override
-      public void handle(javafx.stage.WindowEvent event)
-      {
-         // make sure, not to affect other views by this listener
-         // after current view was released
-         stage.getScene().getWindow().setOnCloseRequest(null);
-         
-         ScreenContext.current().release(CreateprofileView.class);
-         event.consume();
-      }
-   }
+
+    // --------------------------------------
+    // services
+    // --------------------------------------
+
+    @Inject
+    Logger log;
+
+    @Inject
+    Stage stage;
+
+    @Inject
+    RegistrationService registrationBoundary;
+
+    @Inject
+    ProfileService profieBoundary;
+
+    @Inject
+    NetworkEventDispatcher networkEvents;
+
+    /**
+     * The new registration, the user creates.
+     */
+    private Registration registration;
+
+    // --------------------------------------
+    // UI
+    // --------------------------------------
+
+    @FXML
+    private Label lbSelectRegistration;
+
+    @FXML
+    private Label lbPassword;
+
+    @FXML
+    private Label lbSelectNetwork;
+
+    @FXML
+    private Label lbUsername;
+
+    @FXML
+    private ComboBox<Profile> cbRegistrationSelection;
+
+    @FXML
+    private TextField tfNetwork;
+
+    @FXML
+    private Button btSearchNetworks;
+
+    @FXML
+    private TextField tfUsername;
+
+    @FXML
+    private TextField tfPassword;
+
+    @FXML
+    private CheckBox loginIfConnected;
+
+    // --------------------------------------
+    // methods
+    // --------------------------------------
+
+    @PostConstruct
+    public void cdiInit()
+    {
+        this.stage.getScene().getWindow().setOnCloseRequest(new OnProfileAbortHandler());
+    }
+
+    /**
+     * Initialize injected FXML components.
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        this.registration = new Registration();
+        bindRegistration(registration);
+        Platform.runLater(() -> cbRegistrationSelection.setItems(FXCollections.observableList(profieBoundary.getAll())));
+    }
+
+    private void bindRegistration(Registration regist)
+    {
+        User user = new User();
+        regist.setUser(user);
+        Bindings.bindBidirectional(this.tfUsername.textProperty(), user.nameProperty());
+        Bindings.bindBidirectional(this.tfPassword.textProperty(), user.passwordProperty());
+        Bindings.bindBidirectional(this.tfNetwork.textProperty(), regist.ssidProperty());
+        Bindings.bindBidirectional(this.cbRegistrationSelection.valueProperty(), regist.profileProperty());
+        Bindings.bindBidirectional(this.loginIfConnected.selectedProperty(), regist.autoConnectIfAvailableProperty());
+    }
+
+    private Set<ConstraintViolation<Object>> validateRegistration(Registration regist)
+    {
+        WebauthValidator v = new WebauthValidator();
+        // v.validateAndColor(regist.getProfile(), this.lbSelectRegistration);
+        v.validateAndColor(regist.getUser().getName(), this.lbUsername);
+        v.validateAndColor(regist.getUser().getPassword(), this.lbPassword);
+        v.validateAndColor(regist.getSsid(), this.lbSelectNetwork);
+
+        this.log.info("Validation constraints occurred: {}", v.getOccurredViolationConstraints());
+        return v.getOccurredViolationConstraints();
+    }
+
+    // --------------------------------------
+    // actions
+    // --------------------------------------
+
+    /**
+     * Action: search networks
+     */
+    @FXML
+    void onSearchNetworks(ActionEvent event)
+    {
+        List<Connection> connections = networkEvents.getNetworkProvider().getConnections();
+        if (connections != null)
+        {
+        }
+    }
+
+    /**
+     * Action: Save the profile.
+     */
+    @FXML
+    void onProfileCreated(ActionEvent event)
+    {
+        Set<ConstraintViolation<Object>> violations = validateRegistration(this.registration);
+        if (violations == null || violations.size() == 0)
+        {
+            this.registrationBoundary.save(this.registration);
+            ScreenContext.current().release(CreateprofileView.class);
+        }
+    }
+
+    /**
+     * Action: Abort creation.
+     */
+    class OnProfileAbortHandler implements EventHandler<javafx.stage.WindowEvent>
+    {
+        @Override
+        public void handle(javafx.stage.WindowEvent event)
+        {
+            // make sure, not to affect other views by this listener
+            // after current view was released
+            stage.getScene().getWindow().setOnCloseRequest(null);
+
+            ScreenContext.current().release(CreateprofileView.class);
+            event.consume();
+        }
+    }
 }

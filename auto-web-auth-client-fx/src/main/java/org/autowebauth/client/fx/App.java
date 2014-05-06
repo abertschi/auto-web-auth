@@ -7,6 +7,7 @@ import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
 
 import org.autowebauth.client.fx.infrastrucutre.mvp.StartupStage;
 import org.autowebauth.client.fx.infrastrucutre.screen.ScreenContext;
@@ -46,6 +47,7 @@ public class App
         stage.centerOnScreen();
         stage.getScene().getStylesheets().add(uri);
         stage.show();
+        
     }
 
 }

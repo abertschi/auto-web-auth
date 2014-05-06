@@ -61,15 +61,15 @@ public class WinOsNetworkProvider implements NetworkProvider
                 while (true)
                 {
                     ConnectionEvent e = new ConnectionEvent(
-                            ConnectionAction.CONNECTED, new Connection()
+                        ConnectionAction.CONNECTED, new Connection()
+                        {
+                            @Override
+                            public String getName()
                             {
-                                @Override
-                                public String getName()
-                                {
-                                    return "Sample connection: "
-                                            + System.currentTimeMillis();
-                                }
-                            });
+                                return "Sample connection: "
+                                    + System.currentTimeMillis();
+                            }
+                        });
                     for (NetworkListener nl : WinOsNetworkProvider.this.listeners)
                     {
                         nl.onConnectionActivity(e);

@@ -12,7 +12,6 @@ import org.autowebauth.core.api.network.provider.conn.NetworkListener;
  */
 public interface NetworkProvider
 {
-
     /**
      * Get information about underlining operating system.
      */

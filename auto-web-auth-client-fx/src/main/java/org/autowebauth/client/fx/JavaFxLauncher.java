@@ -30,8 +30,7 @@ public class JavaFxLauncher extends Application
 
         // Fire Startup Event with primary stage.
         DiManager.getInstance().getBeanManager()
-                .fireEvent(stage, new AnnotationLiteral<StartupStage>() {
-                });
+            .fireEvent(stage, new AnnotationLiteral<StartupStage>() {});
     }
 
     @Override
