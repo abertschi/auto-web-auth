@@ -21,11 +21,11 @@
 		<name>abertschi</name>
 	</organization>
 	<modules>
-		<module>auto-web-auth-core-api</module>
-		<module>auto-web-auth-core-impl-base</module>
-		<module>auto-web-auth-client-fx</module>
-		<module>auto-web-auth-commons</module>
-		<module>auto-web-auth-bom</module>
+		<module>core-api</module>
+		<module>core-impl-base</module>
+		<module>client-fx</module>
+		<module>commons</module>
+		<module>bom</module>
 	</modules>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>

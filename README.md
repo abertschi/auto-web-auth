@@ -31,7 +31,7 @@ UML diagrams are modeled in astah community version.
 Some others are made with MS Visio.
 
 ### Basic usecases
-![Basic usecases](./doc/design/rendering/14-02-21_basic-usecases.png?raw=true)  
+![Basic usecases](./misc/design/rendering/14-02-21_basic-usecases.png?raw=true)  
 
 #### Further explanations
 A supersudent acts as an administrator. He defines registrations for his school. A registration consists of the same necessary information, the login page would send, if the student was logged in through this page.
@@ -47,19 +47,17 @@ After the profile is setup, the *automated web authenticated wireless network lo
 ### Component diagram
 This picuture is showing the basic components of the application. Keep in mind the application is in a client-only application architecture. Everything is basically the java-fx client.
 
-![Basic usecases](./doc/design/rendering/14-02-21_component-diag-auto-web-auth.png?raw=true =250x)
+![Basic usecases](./misc/design/rendering/14-02-21_component-diag-auto-web-auth.png?raw=true =250x)
 
 ## Maven module hierarchy
 
-     - auto-web-auth                        // root (type: pom)
-     | --- auto-web-auth-bom                // bill of materials, includes all modules in latest version
-     | --- auto-web-auth-client-fx          // javaFX client
-     | --- auto-web-auth-core-api           // authentication api
-     | --- auto-web-auth-core-impl-base     // implementation of api, jni to underlining os
-     | --- auto-web-auth-commons            // some common classes, helper classes
-
-
-
+     - auto-web-auth          // root (type: pom)
+     | --- bom                // bill of materials, includes all modules in latest version
+     | --- client-fx          // javaFX client
+     | --- core-api           // authentication api
+     | --- core-impl-base     // implementation of api, jni to underlining os
+     | --- commons            // some common classes, helper classes
+     
 ----------
 
 Feel free to fork and improve.  
