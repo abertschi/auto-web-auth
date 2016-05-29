@@ -26,7 +26,7 @@ The project was launched due to a request by my myself to automatically login to
  - Apache Maven
  - Java Native Interface (get notifications about network activities of underlining os)
  
-## Diagrams in lovely UML
+## Diagrams
 UML diagrams are modeled in astah community version.  
 Some others are made with MS Visio.
 
@@ -57,13 +57,3 @@ This picuture is showing the basic components of the application. Keep in mind t
      | --- auto-web-auth-core-api           // authentication api
      | --- auto-web-auth-core-impl-base     // implementation of api, jni to underlining os
      | --- auto-web-auth-commons            // some common classes, helper classes
-
-
-
-----------
-
-Feel free to fork and improve.  
-Enjoy!  
-
-Andrin Bertschi  
-https://github.com/abertschi/auto-web-auth
